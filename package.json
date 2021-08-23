@@ -1,0 +1,24 @@
+{
+  "name": "12-sql-homework-employee-tracker",
+  "version": "1.0.0",
+  "description": "Unit 12 Employee Tracker homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dearg-amadaun/12-SQL-Homework-Employee-Tracker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dearg-amadaun/12-SQL-Homework-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/dearg-amadaun/12-SQL-Homework-Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.3.0"
+  }
+}
