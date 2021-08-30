@@ -3,8 +3,6 @@ VALUES ("Engineering"),
        ("Sales"), 
        ("Finance"), 
        ("Legal");
-
-
 INSERT INTO role (title, id, department_id, salary)
 VALUES ("Sales Lead", 1, 1, 100000),
        ("Salesperson", 2, 1, 80000), 
@@ -14,10 +12,6 @@ VALUES ("Sales Lead", 1, 1, 100000),
        ("Accountant", 6, 3, 125000),
        ("Legal Team Lead", 7, 4, 250000),
        ("Lawyer", 8, 4, 190000);
-
-
-
-
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("John", "Doe", 1, null), 
        ("Mike", "Chan", 2, 1), 
