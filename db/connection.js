@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
+    //add to .env if you get ambitious
     host: "localhost",
     user: "root",
     password: "rootr00t!",
