@@ -8,20 +8,23 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
 app.get("/api/department", (req, res) => {
-    employeeDatabase.selectAllDepartments().then((data) => {
-        console.log(data);
+    employeeDatabase.selectAllDepartments().then(([rows]) => {
+        console.log(rows);
+        res.json(rows)
     })
 });
 
 app.get("/api/role", (req, res) => {
-    employeeDatabase.selectAllRoles().then((data) => {
-        console.log(data);
+    employeeDatabase.selectAllRoles().then(([rows]) => {
+        console.log(rows);
+        res.json(rows)
     })
 });
 
 app.get("/api/employee", (req, res) => {
-    employeeDatabase.selectAllEmployees().then((data) => {
-        console.log(data);
+    employeeDatabase.selectAllEmployees().then(([rows]) => {
+        console.log(rows);
+        res.json(rows)
     })
 });
 
