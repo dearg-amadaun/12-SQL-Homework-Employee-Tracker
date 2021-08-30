@@ -56,19 +56,28 @@ app.post("/api/add-department", (req, res) => {
 app.post("/api/add-role", (req, res) => {
     const {title} = req.body;
     const {salary} = req.body;
-    const id = req.params.id;
+    const departmentId = req.params.id;
 
-    employeeDatabase.addRole(id, title, salary).then((data) => {
+    employeeDatabase.addRole(departmentId, title, salary).then((data) => {
         if (data[0].affectedRows) {
-            res.json(`${title}, ${salary}, and ${id} have been added to the database`)
+            res.json(`${title}, ${salary}, and ${departmentId} have been added to the database`)
         }
     })
 });
 
-
 //Add Employee
-// WHEN I choose to add an employee
-// THEN I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
+app.post("/api/add-role", (req, res) => {
+    const {first_name} = req.body;
+    const {last_name} = req.body;
+    const {role_id} = req.params.id;
+    const {manager_id} = req.params.id;
+
+    employeeDatabase.addEmployee(first_name, last_name, role_id, manager_id).then((data) => {
+        if (data[0].affectedRows) {
+            res.json(`Employee ${first_name} ${ last_name}, ${role_id}, ${manager_id} has been added to the database`)
+        }
+    })
+});
 
 
 
