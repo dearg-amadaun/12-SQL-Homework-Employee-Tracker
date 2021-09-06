@@ -9,7 +9,6 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
 
-
 /*------------------------- Department Functionality -------------------------*/
 //View all departments
 app.get("/api/department", (req, res) => {

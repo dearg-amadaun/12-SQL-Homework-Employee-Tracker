@@ -3,13 +3,18 @@ require("./server.js");
 require("console.table");
 
 const connection = require("./db/connection");
+const employee_db = require("./db/employee_db")
 
 /*Inquirer Prompts*/
+var choiceArray = [];
+
+menu ();
+function menu() {
     inquirer.prompt([
         {
-            name: "Menu",
+            name: "menu",
             type: "list",
-            message: "Please choose an option from the menu:",
+            message: "Please choose an option from the list:",
             choices: [
                 "View all Departments",
                 "View all Roles",
@@ -49,3 +54,17 @@ const connection = require("./db/connection");
         connection.end();
     }
   });
+
+  function viewAllDepartments() {
+      var deptChoice = "SELECT * FROM department";
+      database.query(deptChoice, (error, data) => {
+          if(error){
+              throw error;
+          }
+          console.table(data);
+          menu();
+      })
+  }
+
+ 
+}

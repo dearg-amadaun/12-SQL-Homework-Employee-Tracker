@@ -77,8 +77,5 @@ class EmployeeDatabase {
         return this.connection.promise().query(`DELETE FROM employee WHERE id = ?`, id)
     }
 
-
-
-
 }
 module.exports = new EmployeeDatabase(connection);
