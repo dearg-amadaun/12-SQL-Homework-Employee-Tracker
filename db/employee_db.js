@@ -5,6 +5,7 @@ class EmployeeDatabase {
         this.connection = connection;
     }
 
+
 /*------------------------- Department Functionality -------------------------*/
 
 //View all Departments
@@ -45,6 +46,8 @@ class EmployeeDatabase {
         [id, title, salary])
     }
 
+//Update Role
+
 //Delete role
     deleteRole(id) {
         return this.connection.promise().query(`DELETE FROM role WHERE id = ?`, id)
@@ -61,7 +64,6 @@ class EmployeeDatabase {
     viewOneEmployee(id) {
         return this.connection.promise().query(`SELECT * FROM employee WHERE id = ?`, id)
     }
-
 
 
 //Add Employee

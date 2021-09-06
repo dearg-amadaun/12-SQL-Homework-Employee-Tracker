@@ -1,3 +1,4 @@
+const mysql = require("mysql2");
 const express = require("express");
 const employeeDatabase = require("./db/employee_db");
 
@@ -6,6 +7,8 @@ const app = express();
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
+
+
 
 /*------------------------- Department Functionality -------------------------*/
 //View all departments
@@ -138,10 +141,6 @@ app.delete("/api/employee/:id", (req, res) => {
         }
     })
 });
-
-
-
-
 
 
 app.listen(PORT, () => console.log(`RUNNING ON ${PORT}!`));
