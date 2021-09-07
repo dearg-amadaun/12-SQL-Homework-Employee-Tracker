@@ -19,8 +19,8 @@ class EmployeeDatabase {
     }
     
 //Add Department
-        addDepartment(department_name) {
-            return this.connection.promise().query(`INSERT INTO department(name) VALUES (?)`, department_name)
+        addDepartment(name) {
+            return this.connection.promise().query(`INSERT INTO department(name) VALUES (?)`, name)
         }
 
 //Delete Department
@@ -41,9 +41,9 @@ class EmployeeDatabase {
     }
 
 //Add role
-    addRole(id, title, salary) {
+    addRole(department_id, title, salary) {
         return this.connection.promise().query(`INSERT INTO role(department_id, title, salary) VALUES (?, ?, ?)`,
-        [id, title, salary])
+        [department_id, title, salary])
     }
 
 //Update Role

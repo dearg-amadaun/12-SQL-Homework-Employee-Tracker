@@ -32,15 +32,21 @@ function menu() {
     const {choice} = answers;
     if (choice === "View all Departments") {
         employee_db.viewAllDepartments().then(([res]) => {
-            console.log(res)
+            console.table(res)
+            menu()
         });
-        console.log("hello");
     }
     if (choice === "View all Roles") {
-        employee_db.viewAllRoles();
+        employee_db.viewAllRoles().then(([res]) => {
+            console.table(res)
+            menu()
+        });
     }
     if (choice === "View all Employees") {
-        employee_db.viewAllEmployees();
+        employee_db.viewAllEmployees().then(([res]) => {
+            console.table(res)
+            menu()
+        });
     }
     if (choice === "Add a Department") {
         employee_db.addADepartment();
