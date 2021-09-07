@@ -5,14 +5,14 @@ require("console.table");
 const connection = require("./db/connection");
 const employee_db = require("./db/employee_db")
 
+
 /*Inquirer Prompts*/
-var choiceArray = [];
 
 menu ();
 function menu() {
     inquirer.prompt([
         {
-            name: "menu",
+            name: "choices",
             type: "list",
             message: "Please choose an option from the list:",
             choices: [
@@ -28,43 +28,47 @@ function menu() {
     }
 ])
 .then((answers) => {
+    console.log(answers);
     const {choices} = answers;
     if (choices === "View all Departments") {
-        viewAllDepartments();
+        employee_db.viewAllDepartments().then(([res]) => {
+            console.log(res)
+        });
+        console.log("hello");
     }
     if (choices === "View all Roles") {
-        viewAllRoles();
+        employee_db.viewAllRoles();
     }
     if (choices === "View all Employees") {
-        viewAllEmployees();
+        employee_db.viewAllEmployees();
     }
     if (choices === "Add a Department") {
-        addADepartment();
+        employee_db.addADepartment();
     }
     if (choices === "Add a Role") {
-        addARole();
+        employee_db.addARole();
     }
     if (choices === "Add an Employee") {
-        addAnEmployee();
+        employee_db.addAnEmployee();
     }
     if (choices === "Update an Employe") {
-        updateAnEmployee();
+        employee_db.updateAnEmployee();
     }
     if (choices === "Exit") {
         connection.end();
     }
   });
 
-  function viewAllDepartments() {
-      var deptChoice = "SELECT * FROM department";
-      database.query(deptChoice, (error, data) => {
-          if(error){
-              throw error;
-          }
-          console.table(data);
-          menu();
-      })
-  }
+//   function viewAllDepartments() {
+//       var deptChoice = "SELECT * FROM department";
+//       database.query(deptChoice, (error, data) => {
+//           if(error){
+//               throw error;
+//           }
+//           console.table(data);
+//           menu();
+//       })
+//   }
 
  
 }
