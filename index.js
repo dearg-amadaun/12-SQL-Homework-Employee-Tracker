@@ -12,7 +12,7 @@ menu ();
 function menu() {
     inquirer.prompt([
         {
-            name: "choices",
+            name: "choice",
             type: "list",
             message: "Please choose an option from the list:",
             choices: [
@@ -29,32 +29,29 @@ function menu() {
 ])
 .then((answers) => {
     console.log(answers);
-    const {choices} = answers;
-    if (choices === "View all Departments") {
+    const {choice} = answers;
+    if (choice === "View all Departments") {
         employee_db.viewAllDepartments().then(([res]) => {
             console.log(res)
         });
         console.log("hello");
     }
-    if (choices === "View all Roles") {
+    if (choice === "View all Roles") {
         employee_db.viewAllRoles();
     }
-    if (choices === "View all Employees") {
+    if (choice === "View all Employees") {
         employee_db.viewAllEmployees();
     }
-    if (choices === "Add a Department") {
+    if (choice === "Add a Department") {
         employee_db.addADepartment();
     }
-    if (choices === "Add a Role") {
+    if (choice === "Add a Role") {
         employee_db.addARole();
     }
-    if (choices === "Add an Employee") {
-        employee_db.addAnEmployee();
-    }
-    if (choices === "Update an Employe") {
+    if (choice === "Update an Employe") {
         employee_db.updateAnEmployee();
     }
-    if (choices === "Exit") {
+    if (choice === "Exit") {
         connection.end();
     }
   });
