@@ -48,30 +48,39 @@ function menu() {
             menu()
         });
     }
-    if (choice === "Add a Department") {
-        employee_db.addADepartment();
+    if (choice === "Add Department") {
+        addDepartment();
     }
-    if (choice === "Add a Role") {
-        employee_db.addARole();
+    if (choice === "Add Role") {
+        addRole();
     }
-    if (choice === "Update an Employe") {
-        employee_db.updateAnEmployee();
+    if (choice === "Update Employee") {
+        updateEmployee();
     }
     if (choice === "Exit") {
         connection.end();
     }
   });
 
-//   function viewAllDepartments() {
-//       var deptChoice = "SELECT * FROM department";
-//       database.query(deptChoice, (error, data) => {
-//           if(error){
-//               throw error;
-//           }
-//           console.table(data);
-//           menu();
-//       })
-//   }
-
- 
+  function addDepartment() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the name of the new Department?',
+            name: 'name'
+        }
+    ]).then(function (name) {
+        connection.query('INSERT INTO department SET ?',
+            {
+                name: name
+            },
+            function (err, name) {
+                if (err) throw err
+                console.table(name);
+                menu();
+            }
+        )
+    })
 }
+ 
+};
