@@ -20,7 +20,7 @@ class EmployeeDatabase {
     
 //Add Department
         addDepartment(department_name) {
-            return this.connection.promise().query(`INSERT INTO department(department_name) VALUES (?)`, department_name)
+            return this.connection.promise().query(`INSERT INTO department(name) VALUES (?)`, department_name)
         }
 
 //Delete Department
